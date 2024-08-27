@@ -5,7 +5,7 @@ from st_auth import check_password
 if not check_password():
     st.stop()
 
-from attsila import synthesize
+from speechsynth import synthesize
 
 st.title("SpeechSynth")
 
