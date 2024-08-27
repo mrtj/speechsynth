@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "attsila"
+version = "0.1.0"
+description = "TTS with Amazon Polly"
+authors = ["Janos Tolgyesi <janos.tolgyesi@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+boto3 = "^1.35.6"
+
+
+[tool.poetry.group.dev.dependencies]
+botocore-stubs = "^1.35.6"
+boto3-stubs = {extras = ["polly"], version = "^1.35.6"}
+streamlit = "^1.37.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
