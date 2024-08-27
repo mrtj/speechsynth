@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "attsila"
+name = "speechsynth"
 version = "0.1.0"
 description = "TTS with Amazon Polly"
 authors = ["Janos Tolgyesi <janos.tolgyesi@gmail.com>"]
