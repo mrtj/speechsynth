@@ -1,16 +1,17 @@
 import streamlit as st
-import boto3
+
+from st_auth import check_password
+
+if not check_password():
+    st.stop()
 
 from attsila import synthesize
-
-polly = boto3.client("polly")
 
 st.title("SpeechSynth")
 
 text = st.text_area("Enter text to synthesize:", height=200)
 
-output_prefix_uri = "s3://aws-panorama.janos.experiments.euwest1.neosperience.com/private/attila/tts"
-
+output_prefix_uri = st.secrets["output_prefix_uri"]
 
 def disable(b):
     st.session_state["synthesizing"] = b
@@ -31,4 +32,4 @@ if st.button(
 if public_uri := st.session_state.get("public_uri"):
     st.subheader("Audio preview")
     st.audio(public_uri, format="audio/mp3")
-    st.markdown(f"[Download the audio with right click -> Save as]({public_uri})")
+    st.markdown(f"[Right-click here and select 'Save As' to download the audio]({public_uri})")
